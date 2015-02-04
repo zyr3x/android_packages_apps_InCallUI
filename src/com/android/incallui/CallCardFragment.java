@@ -247,12 +247,13 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
         mCallButtonsContainer = view.findViewById(R.id.callButtonFragment);
         mInCallMessageLabel = (TextView) view.findViewById(R.id.connectionServiceMessage);
         mProgressSpinner = view.findViewById(R.id.progressSpinner);
-
+		/*
         mMoreMenuButton = (ImageButton) view.findViewById(R.id.moreMenuButton);
         final ContextThemeWrapper contextWrapper = new ContextThemeWrapper(getActivity(),
                 R.style.InCallPopupMenuStyle);
-        mMoreMenu = new MorePopupMenu(contextWrapper, mMoreMenuButton /* anchorView */);
-        mMoreMenu.getMenuInflater().inflate(R.menu.incall_more_menu, mMoreMenu.getMenu());
+        */
+        //mMoreMenu = new MorePopupMenu(contextWrapper, mMoreMenuButton /* anchorView */);
+        /*mMoreMenu.getMenuInflater().inflate(R.menu.incall_more_menu, mMoreMenu.getMenu());
         mMoreMenuButton.setOnTouchListener(mMoreMenu.getDragToOpenListener());
         mMoreMenuButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -260,7 +261,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
                 mMoreMenu.show();
             }
         });
-
+        */
 
         mFloatingActionButtonContainer = view.findViewById(
                 R.id.floating_end_call_action_button_container);
@@ -576,8 +577,8 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
                 sessionModificationState, disconnectCause, connectionLabel,
                 isGatewayCall, isWaitingForRemoteSide);
 
-        updateVBbyCall(state);
-        updateMoreMenuByCall(state);
+        //updateVBbyCall(state);
+        //updateMoreMenuByCall(state);
 
         Log.v(this, "setCallState " + callStateLabel);
         Log.v(this, "DisconnectCause " + disconnectCause.toString());
@@ -744,7 +745,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
                 } else if (isWaitingForRemoteSide) {
                     callStateLabel = context.getString(R.string.card_title_waiting_call);
                 }
-                mDetailedCallInfo.setVisibility(View.GONE);
+//                mDetailedCallInfo.setVisibility(View.GONE);
                 break;
             case Call.State.ONHOLD:
                 callStateLabel = context.getString(R.string.card_title_on_hold);
@@ -1215,12 +1216,13 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
 
         addToBlacklist.setVisible(blacklistVisible);
         addToBlacklist.setEnabled(blacklistVisible);
-
+        /*
         if (mMoreMenu.getMenu().hasVisibleItems()) {
             mMoreMenuButton.setVisibility(View.VISIBLE);
         } else {
             mMoreMenuButton.setVisibility(View.GONE);
         }
+        */
     }
 
     private void updateVBbyCall(int state) {
@@ -1354,7 +1356,7 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
             showInfo = false;
         }
 
-        mDetailedCallInfo.setVisibility(showInfo ? View.VISIBLE : View.GONE);
+//        mDetailedCallInfo.setVisibility(showInfo ? View.VISIBLE : View.GONE);
     }
 
     private boolean fillTextView(TextView view, String text) {
